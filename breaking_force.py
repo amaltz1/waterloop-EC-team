@@ -7,6 +7,12 @@ on the rail, which is based on the distance between the magnet and the rail
 
 maximum separation distance 12-15mm
 minimum separation distance 6mm
+
+equation sources:
+
+https://www.supermagnete.de/eng/faq/How-do-you-calculate-the-magnetic-flux-density#block-magnet b field due to block magnet
+
+http://www.thompsonrd.com/OSEE-brakes.pdf brakign force
 '''
 
 from math import *
