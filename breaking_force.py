@@ -4,4 +4,5 @@
 #on the rail, which is based on the distance between the magnet and the rail
 
 def new_distance(v,z):
+	#something
 	return()
