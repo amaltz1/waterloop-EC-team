@@ -24,7 +24,7 @@ t = 0.0079502          #thickness of rails
 vp = 2/(mu*sigma*T) #"drag peak" velocity (before drag peak, friction braking takes over, after )
 Br = 1.47 #remanence of N52 grade neodymium magnets (in teslas). This is effectively the point magnetic field of the magnet
 L = 0.0254 #dimensions of the block magnets (1x1x1 inch cube or 0.0254 m^3 cube)
-
+a = 0.0541 #area exposed in the air gap of braking system <<tentative>>
 
 def Bfield_cube(z):
 	#returns the b-field at a point z meters away from the 1 cubic inch magnets
@@ -32,10 +32,11 @@ def Bfield_cube(z):
 	return(B)
 
 def Braking_force(v,z):
-	B = Bfield_cube(z) #B varies with separation distance
+	b = Bfield_cube(z) #B varies with separation distance
 	if (v > 2/(sigma*mu*t)):
-        return (1/v)*B**2*a*t*sigma*(1.75/2)
-
+        return (1/v)*b**2*a*t*sigma*(1.75/2)
+	 else:
+        return (v)*b**2*a*t*s*(1.75/2)
 def new_distance(v,z):
 	maxforce = podMass * 9.812 * 2.4
 	return()
