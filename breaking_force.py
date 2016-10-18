@@ -26,6 +26,10 @@ Br = 1.47 #remanence of N52 grade neodymium magnets (in teslas). This is effecti
 L = 0.0254 #dimensions of the block magnets (1x1x1 inch cube or 0.0254 m^3 cube)
 a = 0.0541 #area exposed in the air gap of braking system <<tentative>>
 
+
+maxforce = podMass * 9.812 * 2.4
+
+
 def Bfield_cube(z):
 	#returns the b-field at a point z meters away from the 1 cubic inch magnets
 	B = (Br/pi)*(atan(L**2/(2*z*sqrt(4*z**2+2*L**2)))-atan(L**2/(2*(L+z)*sqrt(4*(L+z)**2+2*L**2))))
@@ -37,6 +41,32 @@ def Braking_force(v,z):
         return (1/v)*b**2*a*t*sigma*(1.75/2)
 	 else:
         return (v)*b**2*a*t*s*(1.75/2)
-def new_distance(v,z):
-	maxforce = podMass * 9.812 * 2.4
-	return()
+
+
+def Separation_Distance(F,v):
+	#returns the separation distance between the magnets in the rail such that at speed v, constraint force F is maintained 
+	#assuming that the velocity does not constantly change in the moment that the magnet adjustment period by the actuator
+
+	if v < 2/(sigma*mu*t):
+        return (v)*b**2*a*t*s*(1.75/2)
+    else:
+    	B_req = sqrt(2 * F * v / ( a * t * sigma * 1.75))
+    	#z_req = newton_krylov (use newton_krylov method to solve nonlinear equation for z)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
