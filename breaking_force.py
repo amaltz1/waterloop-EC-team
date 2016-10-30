@@ -13,6 +13,8 @@ equation sources:
 https://www.supermagnete.de/eng/faq/How-do-you-calculate-the-magnetic-flux-density#block-magnet b field due to block magnet
 
 http://www.thompsonrd.com/OSEE-brakes.pdf brakign force
+
+http://www.convertit.com/go/educationplanet/reference/ams55.asp?Res=200&Page=80
 '''
 
 from math import *
@@ -52,7 +54,6 @@ def Separation_Distance(F,v):
     else:
     	B_req = sqrt(2 * F * v / ( a * t * sigma * 1.75))
     	#z_req = newton_krylov (use newton_krylov method to solve nonlinear equation for z)
-
 
 
 #hello there its geoffrey
