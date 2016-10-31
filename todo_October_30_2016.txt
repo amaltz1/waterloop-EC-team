@@ -1,0 +1,5 @@
+-Relate B-field to z using matrix and ceil/floor
+-Recalculate remance by experimenation because of metglas*
+-Convert matlab script to python *
+
+*(maybe)
