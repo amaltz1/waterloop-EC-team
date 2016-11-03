@@ -30,10 +30,13 @@ a = 0.0541 #area exposed in the air gap of braking system <<tentative>>
 s = sigma
 datapoints = 1000
 maxforce = podMass * 9.812 * 2.4
-z_min = 6e-3
+z_min = 7.1e-3
 z_max = 15e-3
 z_vals = np.linspace(z_min,z_max,datapoints)
 B_vals = [0]*(datapoints)
+
+v_crit =2/(sigma*mu*t)
+
 
 def Bfield_cube(z):
 	#returns the b-field at a point z meters away from the 1 cubic inch magnets
