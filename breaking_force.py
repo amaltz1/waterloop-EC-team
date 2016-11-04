@@ -46,7 +46,7 @@ def Bfield_cube(z):
 for i in range(len(z_vals)):
     B_vals[i] = float(Bfield_cube(z_vals[i]))
  
- 
+
 def Braking_force(v,z):
     b = Bfield_cube(z) #B varies with separation distance
     if (v > 2/(sigma*mu*t)):
@@ -56,22 +56,27 @@ def Braking_force(v,z):
 
 
 def Separation_Distance(v):
-	#returns the separation distance between the magnets in the rail such that at speed v, constraint force F is maintained 
+    #returns the separation distance between the magnets in the rail such *hat at speed v, constraint force F is maintained 
 	#assuming that the velocity does not constantly change in the moment that the magnet adjustment period by the actuator
     F = maxforce
     if v < 2/(sigma*mu*t):
         #B_req = sqrt(2 * F  / ( v *a * t * sigma * 1.75))
         return() #If Velocity is below peak, no braking force
     else:
-    	    B_req = sqrt(2 * F * v / ( a * t * sigma * 1.75))
-    z_index = min(range(len(B_vals)), key=lambda i: abs(B_vals[i]-B_req)) #find z index with assosciated B field value closest to B_req
-    	#z_req = newton_krylov (use newton_krylov method to solve nonlinear equation for z)
+        B_req = sqrt(2 * F * v / ( a * t * sigma * 1.75))
+    print(B_req)
+    B_abs_delta = B_vals
+    for i in range(len(B_abs_delta)):
+        B_abs_delta[i] = abs(B_abs_delta[i] - B_req)
+    print(B_abs_delta)
+    
+    z_index = min(range(len(B_abs_delta)), key=B_abs_delta.__getitem__)
+    print(z_index)
     return(z_vals[z_index])
 
     
 
      
-
 
 
 
